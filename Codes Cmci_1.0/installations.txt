@@ -1,0 +1,108 @@
+```
+# npm create vite@latest (pour créer un projet vite)
+# client, React, JavaScript + SWC
+# cd client, npm i
+# tailwindcss vite
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+   
+    dans tailwind.config.js => 
+        content: [
+            "./index.html",
+            "./src/**/*.{js,ts,jsx,tsx}",
+        ],
+
+    dans index.css => 
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+# npm run dev (pour lancer le serveur vite)
+# npm install react-router-dom
+
+# npm intall flowbite-react
+    plugins: [
+        require('flowbite/plugin'),
+    ]
+    content: [
+        'node_modules/flowbite-react/lib/esm/**/*.js',
+    ]
+# npm install react-icons
+
+# cd .. ("aller à la racine du projet"), 
+# npm init -y ("création du package.json")
+           -y permet d'accepter toutes les valeurs par défaut lors de la création du package.json
+# npm install express
+# node api/index.js (pour lancer le serveur express mais on va le modifier avec le script 'dev' dans package.json)
+# npm install nodemon => ("pour que le serveur se relance automatiquement à chaque modification")
+    "scripts": {
+        "dev": "nodemon api/index.js",
+        "start": "node api/index.js"
+    }
+    npm run dev (va lancer le serveur avec le script nodemon)
+
+# déplacer .gitignore à la racine et y ajouter .env
+# npm install mongoose
+# npm install dotenv ("permet à l'application de lire les variables d'environnement à partir d'un fichier .env")
+    dans api/index.js => 
+        import dotenv from 'dotenv';
+        dotenv.config();
+
+# npm install bcryptjs ("pour crypter les mots de passe")
+# modifier vite.config.js => "pour que le serveur vite(front) puisse communiquer avec le serveur express(back)"
+    server: {
+        proxy: {
+        "/api": {
+            target: "http://localhost:3000",
+            secure: false, // car la requete est en http et non en https
+        },
+        },
+    },
+
+# npm install jsonwebtoken ("pour créer des tokens") à la racine du projet
+# npm install @reduxjs/toolkit react-redux "installer dans le front pour gérer l'état global de l'application")
+    créer l'arborescence src/redux/store.js => 
+    import { configureStore } from '@reduxjs/toolkit';
+    export const store = configureStore({
+        reducer: {},
+    });
+# npm install redux-persist ("pour persister les données dans le local storage")
+
+# npm install firebase ("pour l'authentification")
+
+# npm install --save react-circular-progressbar ("pour les barres de progression circulaires")
+    import { circularProgressbar } from 'react-circular-progressbar';
+    import 'react-circular-progressbar/dist/styles.css';
+
+# npm install cookie-parser ("pour récupérer les cookies") à la racine du projet
+    dans api/index.js => 
+        import cookieParser from 'cookie-parser';
+        app.use(cookieParser());
+
+# npm install react-quill --save ("pour l'éditeur de texte") 
+    import ReactQuill from 'react-quill';
+    import 'react-quill/dist/quill.snow.css';
+
+# npm install --save-dev tailwind-scrollbar ("pour les barres de défilement personnalisées")
+    dans tailwind.config.js => 
+        plugins: [
+            require('tailwind-scrollbar'),
+        ]
+
+        (table-auto overflow-x-scroll md:mx-auto scrollbar 
+            scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700
+            dark:scrollbar-thumb-slate-500)
+
+# npm install moment ("pour la gestion du temps écoulé") dans le dossiert front
+    import moment from 'moment';
+    
+
+# npm install -D @tailwindcss/line-clamp ("pour les troncatures de texte")
+    dans tailwind.config.js => 
+        plugins: [  (cette action n'est plus nécessaire pour les new versions de tailwindcss)
+            require('@tailwindcss/line-clamp'), 
+        ]
+    
+# faire des modifs dans le fichier index et json backend ensuite utiliser le site render 
+# https://www.youtube.com/watch?v=Kkht2mwSL_I&t=34s&ab_channel=React%26NextjsProjectswithSahand
+# https://github.com/sahandghavidel/mern-blog/commits
