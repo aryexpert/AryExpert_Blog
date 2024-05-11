@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ReactGA from 'react-ga'
 
 import { 
   About, 
@@ -24,6 +25,12 @@ import {
 
 
 export default function App() {
+
+  useEffect(() => {
+    ReactGA.initialize("G-BZ0RPGZHR2")
+    ReactGA.pageview("/")
+  }, [])
+
   return (
     <BrowserRouter>
       <ScrollToTop />

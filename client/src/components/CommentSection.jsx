@@ -16,7 +16,7 @@ export default function CommentSection({ postId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (comment.length > 200) {
+    if (comment.length > 1500) {
       return;
     }
     try {
@@ -116,7 +116,7 @@ export default function CommentSection({ postId }) {
     <div className="max-w-2xl mx-auto w-full p3">
       {currentUser ? (
         <div className="flex items-center gap-1 my-5 text-gray-500 text-sm">
-          <p>Signed in as :</p>
+          <p>Connecté en tant que :</p>
           <img
             className="h-6 w-6 object-cover rounded-full shadow-md"
             src={currentUser.profilePicture}
@@ -145,13 +145,13 @@ export default function CommentSection({ postId }) {
           <Textarea
             placeholder="Add a comment..."
             rows="3"
-            maxLength="200"
+            maxLength="1500"
             onChange={(e) => setComment(e.target.value)}
             value={comment}
           />
           <div className="flex justify-between items-center mt-5">
             <p className="text-gray-500 text-xs">
-              {200 - comment.length} characters remaining
+              {1500 - comment.length} caractères restants
             </p>
             <Button outline gradientDuoTone="purpleToBlue" type="submit">
               Soumettre
